@@ -94,3 +94,10 @@ colors-lamp/
 
  
 ## AI Usage
+AI tools were used during development to assist with:
+
+- Writing and formatting documentation (README)
+
+- Debugging PHP, MySQL, and JavaScript issues
+
+- Assisting with basic server setup and deployment troubleshooting (Apache/DigitalOcean)
