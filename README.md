@@ -84,7 +84,7 @@ colors-lamp/
 
 │   └── js/
 
-│       └── code.js
+│   &emsp; └── code.js
 
 │
 
