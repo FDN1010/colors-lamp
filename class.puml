@@ -1,0 +1,69 @@
+@startuml
+class ColorApp {
+  - userId : int
+  - firstName : string
+  - lastName : string
+  --
+  + doLogin()
+  + doLogout()
+  + saveCookie()
+  + readCookie()
+}
+
+class ColorManager {
+  - userId : int
+  --
+  + addColor()
+  + searchColor()
+}
+
+class Login {
+  - login : string
+  - password : string
+  --
+  + getRequestInfo() : array
+  + returnWithInfo()
+  + returnWithError()
+}
+
+class AddColor {
+  - color : string
+  - userId : int
+  --
+  + getRequestInfo() : array
+  + returnWithError()
+  + sendResultInfoAsJson()
+}
+
+class SearchColors {
+  - search : string
+  - userId : int
+  --
+  + getRequestInfo() : array
+  + returnWithInfo()
+  + returnWithError()
+}
+
+class Users << (T,#AABBCC) table >> {
+  + ID : int
+  + Login : string
+  + Password : string
+  + firstName : string
+  + lastName : string
+}
+
+class Colors << (T,#AABBCC) table >> {
+  + UserId : int
+  + Name : string
+}
+
+ColorApp ..> ColorManager : uses
+ColorApp ..> Login : <<calls>>
+ColorManager ..> AddColor : <<calls>>
+ColorManager ..> SearchColors : <<calls>>
+
+Login ..> Users : SELECT
+AddColor ..> Colors : INSERT
+SearchColors ..> Colors : SELECT
+Colors --> Users : FK (UserId)
+@enduml
