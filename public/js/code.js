@@ -1,4 +1,6 @@
-/* exported doLogin, readCookie, doLogout, addColor, searchColor */
+
+/* exported doLogin, readCookie, doLogout,
+addColor, searchColor */
 const urlBase = 'http://COP4331-5.com/LAMPAPI';
 const extension = 'php';
 
