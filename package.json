@@ -2,7 +2,7 @@
   "name": "colors-app",
   "version": "1.0.0",
   "scripts": {
-    "lint": "eslint . && stylelint \"**/*.css\" && htmlhint \"**/*.html\""
+    "lint": "eslint . && stylelint \"**/*.css\" --allow-empty-input && htmlhint \"**/*.html\""
   },
   "devDependencies": {
     "eslint": "^8.0.0",
