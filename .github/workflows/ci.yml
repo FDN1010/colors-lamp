@@ -20,10 +20,28 @@ jobs:
         run: npm install
 
       - name: Start PHP server
-        run: php -S localhost:8000 > /dev/null 2>&1 &
-        
-      - name: Wait for PHP server
-        run: sleep 2
+        run: |
+          php -S localhost:8000 > server.log 2>&1 &
+          echo $! > server.pid
+          sleep 3
+          
+      - name: Verify server started
+        run: |
+          for i in {1..10}; do
+            if curl -f http://localhost:8000/ > /dev/null 2>&1; then
+              echo "Server is running"
+              exit 0
+            fi
+            echo "Attempt $i: Waiting for server..."
+            sleep 1
+          done
+          echo "Server failed to start"
+          cat server.log
+          exit 1
 
       - name: Run tests
         run: npm test
+
+      - name: Cleanup PHP server
+        if: always()
+        run: kill $(cat server.pid) || true
