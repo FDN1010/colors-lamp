@@ -2,7 +2,8 @@
   "name": "colors-app",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:with-server": "php -S localhost:8000 > /dev/null 2>&1 & sleep 2 && npm test"
   },
   "devDependencies": {
     "jest": "^29.0.0",
