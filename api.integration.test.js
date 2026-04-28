@@ -1,4 +1,3 @@
-name=api.integration.test.js
 /**
  * Integration test for PHP API endpoints
  * Tests that PHP server returns valid responses
