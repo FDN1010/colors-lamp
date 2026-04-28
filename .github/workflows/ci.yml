@@ -21,7 +21,7 @@ jobs:
 
       - name: Start PHP server
         run: |
-          php -S localhost:8000 > server.log 2>&1 &
+          php -S localhost:8000 -t . > server.log 2>&1 &
           echo $! > server.pid
           sleep 3
           
@@ -45,3 +45,4 @@ jobs:
       - name: Cleanup PHP server
         if: always()
         run: kill $(cat server.pid) || true
+
