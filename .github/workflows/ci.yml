@@ -21,7 +21,7 @@ jobs:
 
       - name: Start PHP server
         run: |
-          php -S localhost:8000 -t . > server.log 2>&1 &
+          php -S localhost:8000 -t public > server.log 2>&1 &
           echo $! > server.pid
           sleep 3
           
